@@ -254,10 +254,16 @@ body.show-chatbot .chatbot-popup{
   height: 47px;
   width: 100%;
   resize: none;
+  max-height: 100%;
   font-size: 0.9rem;
   padding: 14px 0 13px 18px;
   border-radius: inherit;
-  overflow: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent; 
+}
+
+.chat-form .message-input::hover{
+  scrollbar-color: #ccccf5 transparent; 
 }
 
 .chat-form .chat-controls{
@@ -327,7 +333,6 @@ body.show-chatbot .chatbot-popup{
 .chat-form .file-upload-wrapper :where(img,#file-cancel),
 .chat-form .file-upload-wrapper.file-uploaded #file-upload{
   display: none;
-
 }
 
 .chat-form .file-upload-wrapper.file-uploaded img,.chat-form .file-upload-wrapper.file-uploaded:hover #file-cancel{
@@ -335,3 +340,33 @@ body.show-chatbot .chatbot-popup{
 }
 
 
+/*Responsiveness*/
+@media (max-width:520px){
+  #chatbot-toggler{
+    right: 20px;
+    bottom:20px;
+  }
+
+  .chatbot-popup{
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    border-radius: 0;
+    width: 100%;
+  }
+  .chatbot-popup .chat-headrer{
+    padding: 12px 15px;
+  }
+  .chat-body{
+    height: calc(90% - 55px);
+    padding: 25px 15px;
+  }
+  .chat-footer {
+    padding: 10px 15px 15px;
+  }
+
+  .chat-form .file-upload-wrapper.file-upload #file-cancel{
+    opacity: 0;
+  }
+
+}
